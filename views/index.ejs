@@ -1,0 +1,42 @@
+<%- include ("header.ejs");%> 
+<% if(locals.error){ %>
+  <div class="error">
+    <p><%= error %></p>
+  </div>
+  
+<% } %>
+<% if(locals.data){ %> 
+<div class="main">
+  <% data.forEach(element => { %>
+  <div class="card">
+    <div class="an_tit">
+      <h2><strong>Anime Name: </strong><%= element.Name %></h2>
+    </div>
+    <div class="con">
+        <div class="video">
+            <video src="<%= element.video %>" controls></video>
+        </div>
+      <p><strong>Episode Number: </strong><%= element.ep_no %></p>
+      <p><strong>To: </strong><%= element.to %></p>
+      <p><strong>To: </strong><%= element.from %></p>
+      <p><strong>Similarity: </strong><%= element.similarity %></p>
+    </div>
+  </div>
+
+  <% }); %>
+</div>
+<% }else{ %>
+<div class="content">
+  <div class="form">
+    <form action="/submit" enctype="multipart/form-data" method="post">
+      <label for="img">Upload image: </label>
+      <input type="file" name="image" id="img" />
+      <br /><br />
+      <input type="submit" id="sub" class="btn" value="SUBMIT" />
+    </form>
+  </div>
+</div>
+<% } %> 
+
+
+<%- include ("footer.ejs")%>
