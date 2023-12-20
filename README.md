@@ -1,1 +1,1 @@
-# SauceFinder# AnimeFinder
+# SauceFinder
